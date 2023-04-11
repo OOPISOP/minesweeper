@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>boards/board1.txt</file>
+        <file>boards/board2.txt</file>
+        <file>boards/board3.txt</file>
+        <file>boards/board4.txt</file>
+        <file>boards/board5.txt</file>
+        <file>boards/boards.pri</file>
+        <file>boards/boards.qrc</file>
+    </qresource>
+</RCC>
