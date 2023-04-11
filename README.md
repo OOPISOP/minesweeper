@@ -16,7 +16,7 @@
 裡面包含了boards資料夾的東西，原始盤面
 ### boards dir
 裡面是放一些原始盤面，board1.txt~board5.txt
-還有pri害和檔，用來表示在Resources裡面
+還有pri和qrc檔，用來表示在Resources裡面
 ## current state
 - [x] 起始GUI
 <img width="1035" alt="截圖 2023-04-12 上午12 43 27" src="https://user-images.githubusercontent.com/69885352/231238544-e7f0c099-ddf7-485e-ac13-a2dd7aa0e8a4.png">
