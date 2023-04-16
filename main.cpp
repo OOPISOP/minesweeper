@@ -21,4 +21,23 @@ int main(int argc, char *argv[])
     //show the MainWindow
     w.show();
     return a.exec();
+    
+    //隨機輸入地圖大小
+    /*
+    int row, column, mines;
+	
+	cin >> row >> column >> mines;
+
+	if (row < 0 || column < 0)
+	{
+		cout << "Map can't be minus" << endl;
+	}
+
+	MineSweeperGUI w(row, column, mines);
+
+	w.show();
+
+	return app.exec();
+    */
+    
 }
