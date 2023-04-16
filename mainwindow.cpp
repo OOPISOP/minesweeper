@@ -11,6 +11,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    originBoard = new OriginBoard(this);
+    ui->stackedWidget->addWidget(originBoard);
+    ui->stackedWidget->setCurrentWidget(originBoard);
 }
 
 MainWindow::~MainWindow()
@@ -23,21 +27,22 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
 {
     QString text = ui->comboBox->currentText();
 }
-//Intent:when clicked the loadButton,check  filepath ,and output Load BoardFile Success,or not
-void MainWindow::on_loadButton_clicked()
+
+void MainWindow::on_gameBoardButon_clicked()
 {
-    //fetch filePath from boardPath lineEdit
-    QString filePath = ui->boardPath->text();
-    //add filePath
-    QFileInfo fi(":"+filePath);
-    //check file,if file exist output Success,or output Failed
-    if(fi.isFile())
-    {
-        qDebug().nospace().noquote()<<"<Load BoardFile "+ QString(filePath) + "> : " + "Success";
-    }
-    else
-    {
-        qDebug().nospace().noquote()<<"<Load BoardFile "+ QString(filePath) + "> : " + "Failed";
-    }
+    this->originBoard->printGameBoard();
+}
+
+
+void MainWindow::on_gameAnswerButton_clicked()
+{
+    this->originBoard->printAnswer();
+}
+
+
+void MainWindow::on_gameStateButton_clicked()
+{
+    QString gameState = ui->gameState->text();
+    qDebug().nospace().noquote()<<"<Print GameState> : "<<gameState;
 }
 

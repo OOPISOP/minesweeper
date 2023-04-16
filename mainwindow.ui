@@ -65,7 +65,7 @@
      <string>GameState：</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="gameState">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -76,32 +76,6 @@
     </property>
     <property name="text">
      <string>Standby</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>110</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>盤面檔位置：</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="loadButton">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>100</y>
-      <width>100</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Load</string>
     </property>
    </widget>
    <widget class="QPushButton" name="gameBoardButon">
@@ -156,18 +130,17 @@
      <string>StartGame</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="boardPath">
+   <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>110</y>
-      <width>121</width>
-      <height>21</height>
+      <x>10</x>
+      <y>100</y>
+      <width>371</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text">
-     <string>./boards/board1.txt</string>
-    </property>
+    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="page_2"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

@@ -10,13 +10,16 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    originboard.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    originboard.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    originboard.ui
 
 
 # Default rules for deployment.

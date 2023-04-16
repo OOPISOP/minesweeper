@@ -1,7 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include<QWidget>
 #include <QMainWindow>
+#include "originboard.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,9 +21,17 @@ private slots:
 
     void on_comboBox_currentIndexChanged(int index);
 
-    void on_loadButton_clicked();
+
+    void on_gameBoardButon_clicked();
+
+    void on_gameAnswerButton_clicked();
+
+    void on_gameStateButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+
+    OriginBoard *originBoard;
+
 };
 #endif // MAINWINDOW_H
