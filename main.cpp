@@ -6,7 +6,9 @@
  * Update Date: 2023/04/16
  * Description: main
 ***********************************************************************/
-#include "MineSweeperGui.h"
+
+//Include GUI function
+//#include "MineSweeperGui.h"
 #include "mainwindow.h"
 #include<iostream>
 #include <QApplication>
@@ -21,7 +23,6 @@ int main(int argc, char *argv[])
     MainWindow w;
     //show the MainWindow
     w.show();
-    return a.exec();
     
     //隨機輸入地圖大小
     /*
@@ -33,12 +34,11 @@ int main(int argc, char *argv[])
 	{
 		cout << "Map can't be minus" << endl;
 	}
-
+	
 	MineSweeperGUI w(row, column, mines);
 
 	w.show();
-
-	return app.exec();
     */
-    
+
+    return a.exec();
 }
