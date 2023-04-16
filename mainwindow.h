@@ -12,6 +12,7 @@
 #include<QWidget>
 #include <QMainWindow>
 #include "originboard.h"
+#include "assignboard.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -43,6 +44,6 @@ private:
     int boardIndex;
     // OriginBoard class
     OriginBoard *originBoard;
-
+    AssignBoard *assignBoard;
 };
 #endif // MAINWINDOW_H
