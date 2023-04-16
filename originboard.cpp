@@ -1,3 +1,12 @@
+/***********************************************************************
+ * File: originboard.cpp
+ * Author: B11115033
+ * Create Date: 2023/04/16
+ * Editor: B11115033
+ * Update Date: 2023/04/16
+ * Description: Imp the origin board
+***********************************************************************/
+
 #include "originboard.h"
 #include "./ui_originboard.h"
 #include <QMessageBox>
@@ -20,7 +29,9 @@ OriginBoard::~OriginBoard()
 {
     delete ui;
 }
-
+//Intent:load the file data and init answer board and game board
+//Pre:need QTextStream to input file data
+//Post:init answer board and game board
 void OriginBoard::load(QTextStream in)
 {
     in>>this->row;
@@ -28,12 +39,15 @@ void OriginBoard::load(QTextStream in)
     initAnswer(in);
     initBoard();
 }
-
+//Intent:init answer board
+//Pre:need QTextStream to input file data
+//Post:set mine and number of mine around
 void OriginBoard::initAnswer(QTextStream& in)
 {
-
+    //init the board row and column size
     this->gameAnswer.reserve(row);
     for(int i=0;i<row;i++)this->gameAnswer[i].reserve(column);
+    //get the file data and set the boar
     for(int i=0;!in.atEnd()&&i<row;i++)
     {
         QString line = in.readLine();
@@ -48,6 +62,7 @@ void OriginBoard::initAnswer(QTextStream& in)
             else this->gameAnswer[i][j] = 'X';
         }
     }
+    //set number of mine around
     for (int r = 0; r < row; r++)
     {
         for (int c = 0; c < column; c++)
@@ -95,7 +110,9 @@ void OriginBoard::initAnswer(QTextStream& in)
 
 }
 
-
+//Intent:print answer board
+//Pre:need answer board
+//Post:print answer board
 void OriginBoard::printAnswer()
 {
     qDebug().nospace().noquote()<<"<Print GameAnswer> :";
@@ -109,7 +126,9 @@ void OriginBoard::printAnswer()
         qDebug().nospace().noquote()<<row;
     }
 }
-
+//Intent:init game board
+//Pre:need game board
+//Post:init game boar
 void OriginBoard::initBoard()
 {
     this->gameBoard.reserve(row);
@@ -122,7 +141,9 @@ void OriginBoard::initBoard()
         }
     }
 }
-
+//Intent:print gmae board
+//Pre:need game board
+//Post:print game board
 void OriginBoard::printGameBoard()
 {
     qDebug().nospace().noquote()<<"<Print GameBoard> :";
@@ -138,7 +159,9 @@ void OriginBoard::printGameBoard()
 
 }
 
-
+//Intent:when push the load button will load the board
+//Pre:need board path
+//Post:if board path is correct,load the board and print success,or print failed
 void OriginBoard::on_loadButton_clicked()
 {
         //fetch filePath from boardPath lineEdit
