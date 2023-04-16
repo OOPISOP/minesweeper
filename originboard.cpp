@@ -17,7 +17,6 @@
 #include <string>
 using namespace std;
 
-
 OriginBoard::OriginBoard(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::OriginBoard)
@@ -38,6 +37,23 @@ void OriginBoard::load(QTextStream in)
     in>>this->column;
     initAnswer(in);
     initBoard();
+}
+
+//Intent:print answer board
+//Pre:need answer board
+//Post:print answer board
+void OriginBoard::printAnswer()
+{
+    qDebug().nospace().noquote()<<"<Print GameAnswer> :";
+    for(int i=0;i<row;i++)
+    {
+        QString row = "";
+        for(int j=0;j<column;j++)
+        {
+            row += QString(this->gameAnswer[i][j]) + " ";
+        }
+        qDebug().nospace().noquote()<<row;
+    }
 }
 //Intent:init answer board
 //Pre:need QTextStream to input file data
@@ -81,7 +97,7 @@ void OriginBoard::initAnswer(QTextStream& in)
                 }
                 if ((r - 1 >= 0) && (c + 1 < column) && gameAnswer[r - 1][c + 1] == 'X')
                 {
-                   num++;
+                    num++;
                 }
                 if ((r + 1 < row) && gameAnswer[r + 1][c] == 'X')
                 {
@@ -93,11 +109,11 @@ void OriginBoard::initAnswer(QTextStream& in)
                 }
                 if ((r + 1 < row) && (c - 1 >= 0) && gameAnswer[r + 1][c - 1] == 'X')
                 {
-                   num++;
+                    num++;
                 }
                 if ((c - 1 >= 0) && gameAnswer[r][c - 1] == 'X')
                 {
-                   num++;
+                    num++;
                 }
                 if ((r - 1 >= 0) && (c - 1 >= 0) && gameAnswer[r - 1][c - 1] == 'X')
                 {
@@ -110,22 +126,6 @@ void OriginBoard::initAnswer(QTextStream& in)
 
 }
 
-//Intent:print answer board
-//Pre:need answer board
-//Post:print answer board
-void OriginBoard::printAnswer()
-{
-    qDebug().nospace().noquote()<<"<Print GameAnswer> :";
-    for(int i=0;i<row;i++)
-    {
-        QString row = "";
-        for(int j=0;j<column;j++)
-        {
-            row += QString(this->gameAnswer[i][j]) + " ";
-        }
-        qDebug().nospace().noquote()<<row;
-    }
-}
 //Intent:init game board
 //Pre:need game board
 //Post:init game boar

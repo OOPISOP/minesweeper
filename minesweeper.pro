@@ -9,16 +9,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    assignboard.cpp \
     main.cpp \
     mainwindow.cpp \
+    mineamountboard.cpp \
+    minerateboard.cpp \
     originboard.cpp
 
 HEADERS += \
+    assignboard.h \
     mainwindow.h \
+    mineamountboard.h \
+    minerateboard.h \
     originboard.h
 
 FORMS += \
+    assignboard.ui \
     mainwindow.ui \
+    mineamountboard.ui \
+    minerateboard.ui \
     originboard.ui
 
 

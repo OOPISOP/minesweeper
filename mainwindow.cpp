@@ -14,6 +14,7 @@
 #include<iostream>
 #include <QDebug>
 
+
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,10 +23,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     //init the originBoard class
     originBoard = new OriginBoard(this);
+    assignBoard = new AssignBoard(this);
     //add originBoard to stackedWidget
     ui->stackedWidget->addWidget(originBoard);
+    //add assignBoard to stackedWidget
+    ui->stackedWidget->addWidget(assignBoard);
     //set stackedWidget currentWidget is originBoard class
     ui->stackedWidget->setCurrentWidget(originBoard);
+
 }
 
 MainWindow::~MainWindow()
@@ -38,6 +43,17 @@ MainWindow::~MainWindow()
 void MainWindow::on_comboBox_currentIndexChanged(int index)
 {
     this->boardIndex = index;
+    if(boardIndex == 0)
+    {
+        //set stackedWidget currentWidget is originBoard class
+        ui->stackedWidget->setCurrentWidget(originBoard);
+    }
+    else if(boardIndex == 1)
+    {
+        //set stackedWidget currentWidget is assignBoard class
+        ui->stackedWidget->setCurrentWidget(assignBoard);
+        assignBoard->changeBoard(boardIndex);
+    }
 }
 //Intent:when the comboBox current index changed ,changed the model
 //Pre:tarnsform into index
