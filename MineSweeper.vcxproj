@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8684E4B3-5B0C-3DF9-8176-6D70EE706D68}</ProjectGuid>
+    <RootNamespace>MineSweeper</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>MineSweeper</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>MineSweeper</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MineSweeper</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MineSweeper</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\Qt;.;..\qt-static-5.15.2\include;..\qt-static-5.15.2\include\QtMultimediaWidgets;..\qt-static-5.15.2\include\QtWidgets;..\qt-static-5.15.2\include\QtMultimedia;..\qt-static-5.15.2\include\QtGui;..\qt-static-5.15.2\include\QtANGLE;..\qt-static-5.15.2\include\QtNetwork;..\qt-static-5.15.2\include\QtCore;debug;..\qt-static-5.15.2\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>C:\Qt\qt-static-5.15.2\plugins\styles\qwindowsvistastyled.lib;C:\Qt\qt-static-5.15.2\plugins\mediaservice\dsengined.lib;C:\Qt\qt-static-5.15.2\plugins\mediaservice\qtmedia_audioengined.lib;C:\Qt\qt-static-5.15.2\plugins\mediaservice\wmfengined.lib;mf.lib;mfplat.lib;mfuuid.lib;d3d9.lib;dxva2.lib;evr.lib;mfreadwrite.lib;wmcodecdspuuid.lib;dmoguids.lib;msdmo.lib;Mf.lib;Mfuuid.lib;Mfplat.lib;Propsys.lib;C:\Qt\qt-static-5.15.2\plugins\audio\qtaudio_wasapid.lib;Mmdevapi.lib;runtimeobject.lib;C:\Qt\qt-static-5.15.2\plugins\audio\qtaudio_windowsd.lib;strmiids.lib;C:\Qt\qt-static-5.15.2\plugins\playlistformats\qtmultimedia_m3ud.lib;C:\Qt\qt-static-5.15.2\plugins\platforms\qwindowsd.lib;winspool.lib;shlwapi.lib;wtsapi32.lib;C:\Qt\qt-static-5.15.2\lib\Qt5EventDispatcherSupportd.lib;C:\Qt\qt-static-5.15.2\lib\Qt5FontDatabaseSupportd.lib;C:\Qt\qt-static-5.15.2\lib\qtfreetyped.lib;dwrite.lib;d2d1.lib;C:\Qt\qt-static-5.15.2\lib\Qt5ThemeSupportd.lib;C:\Qt\qt-static-5.15.2\lib\Qt5AccessibilitySupportd.lib;C:\Qt\qt-static-5.15.2\lib\Qt5WindowsUIAutomationSupportd.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qgifd.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qicnsd.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qicod.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qjpegd.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qtgad.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qtiffd.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qwbmpd.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qwebpd.lib;C:\Qt\qt-static-5.15.2\plugins\bearer\qgenericbearerd.lib;C:\Qt\qt-static-5.15.2\lib\Qt5MultimediaWidgetsd.lib;C:\Qt\qt-static-5.15.2\lib\Qt5OpenGLd.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Widgetsd.lib;uxtheme.lib;dwmapi.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Multimediad.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Guid.lib;d3d11.lib;dxgi.lib;dxguid.lib;C:\Qt\qt-static-5.15.2\lib\qtlibpngd.lib;C:\Qt\qt-static-5.15.2\lib\qtharfbuzzd.lib;gdi32.lib;comdlg32.lib;oleaut32.lib;imm32.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Networkd.lib;dnsapi.lib;iphlpapi.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Cored.lib;mpr.lib;userenv.lib;version.lib;C:\Qt\qt-static-5.15.2\lib\qtpcre2d.lib;netapi32.lib;ws2_32.lib;advapi32.lib;kernel32.lib;ole32.lib;shell32.lib;uuid.lib;user32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\MineSweeper.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\Qt;.;..\qt-static-5.15.2\include;..\qt-static-5.15.2\include\QtMultimediaWidgets;..\qt-static-5.15.2\include\QtWidgets;..\qt-static-5.15.2\include\QtMultimedia;..\qt-static-5.15.2\include\QtGui;..\qt-static-5.15.2\include\QtANGLE;..\qt-static-5.15.2\include\QtNetwork;..\qt-static-5.15.2\include\QtCore;release;..\qt-static-5.15.2\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>C:\Qt\qt-static-5.15.2\plugins\styles\qwindowsvistastyle.lib;C:\Qt\qt-static-5.15.2\plugins\mediaservice\dsengine.lib;C:\Qt\qt-static-5.15.2\plugins\mediaservice\qtmedia_audioengine.lib;C:\Qt\qt-static-5.15.2\plugins\mediaservice\wmfengine.lib;mf.lib;mfplat.lib;mfuuid.lib;d3d9.lib;dxva2.lib;evr.lib;mfreadwrite.lib;wmcodecdspuuid.lib;dmoguids.lib;msdmo.lib;Mf.lib;Mfuuid.lib;Mfplat.lib;Propsys.lib;C:\Qt\qt-static-5.15.2\plugins\audio\qtaudio_wasapi.lib;Mmdevapi.lib;runtimeobject.lib;C:\Qt\qt-static-5.15.2\plugins\audio\qtaudio_windows.lib;strmiids.lib;C:\Qt\qt-static-5.15.2\plugins\playlistformats\qtmultimedia_m3u.lib;C:\Qt\qt-static-5.15.2\plugins\platforms\qwindows.lib;winspool.lib;shlwapi.lib;wtsapi32.lib;C:\Qt\qt-static-5.15.2\lib\Qt5EventDispatcherSupport.lib;C:\Qt\qt-static-5.15.2\lib\Qt5FontDatabaseSupport.lib;C:\Qt\qt-static-5.15.2\lib\qtfreetype.lib;dwrite.lib;d2d1.lib;C:\Qt\qt-static-5.15.2\lib\Qt5ThemeSupport.lib;C:\Qt\qt-static-5.15.2\lib\Qt5AccessibilitySupport.lib;C:\Qt\qt-static-5.15.2\lib\Qt5WindowsUIAutomationSupport.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qgif.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qicns.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qico.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qjpeg.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qtga.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qtiff.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qwbmp.lib;C:\Qt\qt-static-5.15.2\plugins\imageformats\qwebp.lib;C:\Qt\qt-static-5.15.2\plugins\bearer\qgenericbearer.lib;C:\Qt\qt-static-5.15.2\lib\Qt5MultimediaWidgets.lib;C:\Qt\qt-static-5.15.2\lib\Qt5OpenGL.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Widgets.lib;uxtheme.lib;dwmapi.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Multimedia.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Gui.lib;d3d11.lib;dxgi.lib;dxguid.lib;C:\Qt\qt-static-5.15.2\lib\qtlibpng.lib;C:\Qt\qt-static-5.15.2\lib\qtharfbuzz.lib;gdi32.lib;comdlg32.lib;oleaut32.lib;imm32.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Network.lib;dnsapi.lib;iphlpapi.lib;C:\Qt\qt-static-5.15.2\lib\Qt5Core.lib;mpr.lib;userenv.lib;version.lib;C:\Qt\qt-static-5.15.2\lib\qtpcre2.lib;netapi32.lib;ws2_32.lib;advapi32.lib;kernel32.lib;ole32.lib;shell32.lib;uuid.lib;user32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\MineSweeper.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_CONSOLE;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\MineSweeperGUI.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Qt\VSProject\minesweeper_plugin_import.cpp" />
+    <ClCompile Include="debug\moc_MineSweeperGUI.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_MineSweeperGUI.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\qt-static-5.15.2\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -BxC:\Qt\qt-static-5.15.2\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E ..\qt-static-5.15.2\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\qt-static-5.15.2\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -BxC:\Qt\qt-static-5.15.2\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E ..\qt-static-5.15.2\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
