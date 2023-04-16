@@ -6,6 +6,7 @@
  * Update Date: 2023/04/16
  * Description: main
 ***********************************************************************/
+#include "MineSweeperGui.h"
 #include "mainwindow.h"
 #include<iostream>
 #include <QApplication>
