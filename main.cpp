@@ -8,7 +8,7 @@
 ***********************************************************************/
 
 //Include GUI function
-//#include "MineSweeperGui.h"
+//#include "MineSweeperGUI.h"
 #include "mainwindow.h"
 #include<iostream>
 #include <QApplication>
