@@ -35,6 +35,14 @@ public:
     void printAnswer();
     //init answer board
     void initAnswer(QTextStream&);
+    // Print the amount of bomb inserted in map.
+    void printBombCount();
+    // Print the number of flags inserted in map.
+    void printFlagCount();
+    // Print the number of blanks opened in map.
+    void printOpenBlankCount();
+    // Print the number of blanks remaind in map.
+    void printRemainBlankCount();
 
 private slots:
     //when push will load file data ,and init game and answer board

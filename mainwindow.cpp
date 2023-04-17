@@ -81,3 +81,34 @@ void MainWindow::on_gameStateButton_clicked()
     qDebug().nospace().noquote()<<"<Print GameState> : "<<gameState;
 }
 
+// Intent:  To print the amount of bomb inserted in map.
+// Pre:     d
+// Post:    f
+void MainWindow::on_bombCountButton_clicked()
+{
+    this->originBoard->printBombCount();
+}
+
+// Intent:  To print the number of flags inserted in map.
+// Pre:     d
+// Post:    f
+void on_flagCountButton_clicked()
+{
+    this->originBoard->printFlagCount();
+}
+
+// Intent:  To print the number of blanks opened in map.
+// Pre:     d
+// Post:    f
+void on_openBlankCountButton_clicked()
+{
+    this->
+}
+
+// Intent:  To print the number of blanks remaind in map.
+// Pre:     d
+// Post:    f
+void on_remainBlankCountButton_clicked()
+{
+
+}
