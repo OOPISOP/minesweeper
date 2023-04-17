@@ -14,14 +14,16 @@ SOURCES += \
     mainwindow.cpp \
     mineamountboard.cpp \
     minerateboard.cpp \
-    originboard.cpp
+    originboard.cpp \
+    MineSweeperGUI.cpp
 
 HEADERS += \
     assignboard.h \
     mainwindow.h \
     mineamountboard.h \
     minerateboard.h \
-    originboard.h
+    originboard.h \
+    MineSweeperGUI.h
 
 FORMS += \
     assignboard.ui \

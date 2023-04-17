@@ -20,7 +20,8 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     //new the MainWindow class
-    MainWindow w;
+   MainWindow w;
+
     //show the MainWindow
     w.show();
     

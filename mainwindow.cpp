@@ -48,12 +48,13 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
         //set stackedWidget currentWidget is originBoard class
         ui->stackedWidget->setCurrentWidget(originBoard);
     }
-    else if(boardIndex == 1)
+    else if(boardIndex > 0)
     {
         //set stackedWidget currentWidget is assignBoard class
         ui->stackedWidget->setCurrentWidget(assignBoard);
         assignBoard->changeBoard(boardIndex);
     }
+
 }
 //Intent:when the comboBox current index changed ,changed the model
 //Pre:tarnsform into index

@@ -12,7 +12,7 @@ class MineSweeperGUI : public QWidget
 
 public:
 	MineSweeperGUI(int rows, int cols, int minus, QWidget* parent = nullptr);
-	void MineSweeperGUI::changeText() {
+    void changeText() {
 		QPushButton* button = qobject_cast<QPushButton*>(sender());
 		if (button) { button->setText("q"); }
 	}
