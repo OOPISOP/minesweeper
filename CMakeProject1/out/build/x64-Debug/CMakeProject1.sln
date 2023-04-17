@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{4B1ADC26-0DD5-3953-A332-8CFD981ACDA2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B2884DF3-9989-332A-89E0-23B21F68F93B} = {B2884DF3-9989-332A-89E0-23B21F68F93B}
+		{CC390F5C-3648-3238-BA05-1CE2DA1EB11D} = {CC390F5C-3648-3238-BA05-1CE2DA1EB11D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CMakeProject1", "CMakeProject1\CMakeProject1.vcxproj", "{B2884DF3-9989-332A-89E0-23B21F68F93B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CC390F5C-3648-3238-BA05-1CE2DA1EB11D} = {CC390F5C-3648-3238-BA05-1CE2DA1EB11D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{CC390F5C-3648-3238-BA05-1CE2DA1EB11D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B1ADC26-0DD5-3953-A332-8CFD981ACDA2}.Debug|x64.ActiveCfg = Debug|x64
+		{B2884DF3-9989-332A-89E0-23B21F68F93B}.Debug|x64.ActiveCfg = Debug|x64
+		{B2884DF3-9989-332A-89E0-23B21F68F93B}.Debug|x64.Build.0 = Debug|x64
+		{CC390F5C-3648-3238-BA05-1CE2DA1EB11D}.Debug|x64.ActiveCfg = Debug|x64
+		{CC390F5C-3648-3238-BA05-1CE2DA1EB11D}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {520A0F04-3F7E-37F0-A63B-B528896E899B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

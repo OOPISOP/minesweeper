@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Tzuen\Desktop\CMakeProject1\CMakeProject1\CMakeProject1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Tzuen\Desktop\CMakeProject1\CMakeProject1\Clink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Tzuen\Desktop\CMakeProject1\CMakeProject1\CMakeProject1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Tzuen\Desktop\CMakeProject1\CMakeProject1\Click.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Tzuen\Desktop\CMakeProject1\CMakeProject1\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D30BDD2E-8BDB-3A29-9190-C5AAB02B17D7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{97D11FF8-1462-3641-87C6-322D2883501D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
