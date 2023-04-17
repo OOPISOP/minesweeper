@@ -80,6 +80,7 @@ void OriginBoard::initAnswer(QTextStream& in)
                 this->gameAnswer[i][j] = 'X';
                 this->BombCount++;
             }
+            remainBlankCount++;
         }
     }
     //set number of mine around
@@ -168,7 +169,7 @@ void OriginBoard::printGameBoard()
 // Post:    BombCount is printed.
 void OriginBoard::printBombCount()
 {
-    qDebug().nospace().noquote() << BombCount;
+    qDebug().nospace().noquote() << bombCount;
 }
 
 // Intent:  To print the number of flags inserted in map.
@@ -176,7 +177,7 @@ void OriginBoard::printBombCount()
 // Post:    FlagCount is printed.
 void OriginBoard::printFlagCount()
 {
-    qDebug().nospace().noquote() << FlagCount;
+    qDebug().nospace().noquote() << flagCount;
 }
 
 // Intent:  To print the number of blanks opened in map.
@@ -184,7 +185,7 @@ void OriginBoard::printFlagCount()
 // Post:    OpenBlankCount is printed.
 void OriginBoard::printOpenBlankCount()
 {
-    qDebug().nospace().noquote() << OpenBlankCount;
+    qDebug().nospace().noquote() << openBlankCount;
 }
 
 // Intent:  To print the number of blanks remaind in map.
@@ -192,7 +193,7 @@ void OriginBoard::printOpenBlankCount()
 // Post:    RemainBlankCount is printed.
 void OriginBoard::printRemainBlankCount()
 {
-    qDebug().nospace().noquote() << RemainBlankCount;
+    qDebug().nospace().noquote() << remainBlankCount;
 }
 
 //Intent:when push the load button will load the board
