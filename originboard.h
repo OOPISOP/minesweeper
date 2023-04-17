@@ -59,6 +59,14 @@ private:
     int row;
     //board column
     int column;
+    // The amount of bomb inserted in map.
+    unsigned int bombCount = 0;
+    // The number of flags inserted in map.
+    unsigned int flagCount = 0;
+    // The number of blanks opened in map.
+    unsigned int openBlankCount = 0;
+    // The number of blanks remaind in map.
+    unsigned int remainBlankCount = 0;
 };
 
 #endif // ORIGINBOARD_H
