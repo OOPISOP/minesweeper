@@ -75,7 +75,12 @@ void OriginBoard::initAnswer(QTextStream& in)
         for(int j=0;j<column&&j<line.size();j++)
         {
             if(line[j]=='O')this->gameAnswer[i][j] = '0';
-            else this->gameAnswer[i][j] = 'X';
+            else
+            {
+                this->gameAnswer[i][j] = 'X';
+                this->BombCount++;
+            }
+            remainBlankCount++;
         }
     }
     //set number of mine around
@@ -157,6 +162,38 @@ void OriginBoard::printGameBoard()
         qDebug().nospace().noquote()<<row;
     }
 
+}
+
+// Intent:  To print the amount of bomb inserted in map.
+// Pre:     The variable BombCount must have been initialised.
+// Post:    BombCount is printed.
+void OriginBoard::printBombCount()
+{
+    qDebug().nospace().noquote() << bombCount;
+}
+
+// Intent:  To print the number of flags inserted in map.
+// Pre:     The variable FlagCount must have been initialised.
+// Post:    FlagCount is printed.
+void OriginBoard::printFlagCount()
+{
+    qDebug().nospace().noquote() << flagCount;
+}
+
+// Intent:  To print the number of blanks opened in map.
+// Pre:     The variable OpenBlankCount must have been initialised.
+// Post:    OpenBlankCount is printed.
+void OriginBoard::printOpenBlankCount()
+{
+    qDebug().nospace().noquote() << openBlankCount;
+}
+
+// Intent:  To print the number of blanks remaind in map.
+// Pre:     The variable RemainBlankCount must have been initialised.
+// Post:    RemainBlankCount is printed.
+void OriginBoard::printRemainBlankCount()
+{
+    qDebug().nospace().noquote() << remainBlankCount;
 }
 
 //Intent:when push the load button will load the board
