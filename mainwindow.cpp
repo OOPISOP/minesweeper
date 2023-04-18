@@ -32,6 +32,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void MainWindow::startGame(struct gameInfo GameInfo)
 {
     game = new Game(this);

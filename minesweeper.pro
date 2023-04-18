@@ -19,6 +19,7 @@ SOURCES += \
     originboard.cpp \
     startui.cpp
 
+
 HEADERS += \
     Utils.h \
     assignboard.h \
@@ -29,6 +30,7 @@ HEADERS += \
     mybutton.h \
     originboard.h \
     startui.h
+
 
 FORMS += \
     assignboard.ui \
