@@ -11,8 +11,10 @@
 
 #include<QWidget>
 #include <QMainWindow>
-#include "originboard.h"
-#include "assignboard.h"
+#include "Utils.h"
+
+class StartUI;
+class Game;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,25 +27,16 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void startGame(struct gameInfo);
 
 private slots:
 
-    //get thecurrent index,when the comboBox index change
-    void on_comboBox_currentIndexChanged(int index);
-    //print the game board
-    void on_gameBoardButon_clicked();
-    //print the answer board
-    void on_gameAnswerButton_clicked();
-    //print the game state
-    void on_gameStateButton_clicked();
+
 
 private:
     // main window ui
     Ui::MainWindow *ui;
-    // current board index
-    int boardIndex;
-    // OriginBoard class
-    OriginBoard *originBoard;
-    AssignBoard *assignBoard;
+    StartUI *startUI;
+    Game *game;
 };
 #endif // MAINWINDOW_H

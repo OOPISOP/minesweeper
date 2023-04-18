@@ -15,13 +15,15 @@
 #include<fstream>
 #include <QDebug>
 #include <string>
+#include "startui.h"
 using namespace std;
 
-OriginBoard::OriginBoard(QWidget *parent) :
+OriginBoard::OriginBoard(StartUI *parent) :
     QWidget(parent),
     ui(new Ui::OriginBoard)
 {
     ui->setupUi(this);
+    startUI = parent;
 }
 
 OriginBoard::~OriginBoard()
@@ -37,6 +39,8 @@ void OriginBoard::load(QTextStream in)
     in>>this->column;
     initAnswer(in);
     initBoard();
+    startUI->setBoard(getGameInfo());
+    startUI->setLoadState(true);
 }
 
 //Intent:print answer board
@@ -123,7 +127,6 @@ void OriginBoard::initAnswer(QTextStream& in)
             }
         }
     }
-
 }
 
 //Intent:init game board
@@ -149,12 +152,12 @@ void OriginBoard::printGameBoard()
     qDebug().nospace().noquote()<<"<Print GameBoard> :";
     for(int i=0;i<row;i++)
     {
-        QString row = "";
+        QString rowString = "";
         for(int j=0;j<column;j++)
         {
-            row += QString(this->gameBoard[i][j]) + " ";
+            rowString += QString(this->gameBoard[i][j]) + " ";
         }
-        qDebug().nospace().noquote()<<row;
+        qDebug().nospace().noquote()<<rowString;
     }
 
 }
@@ -172,12 +175,20 @@ void OriginBoard::on_loadButton_clicked()
         //check file,if file exist output Success,or output Failed
         if(fi.isOpen())
         {
+            this->isLoad = true;
             load(QTextStream(&fi));
             qDebug().nospace().noquote()<<"<Load BoardFile "+ QString(filePath) + "> : " + "Success";
         }
         else
         {
+            this->isLoad = false;
             qDebug().nospace().noquote()<<"<Load BoardFile "+ QString(filePath) + "> : " + "Failed";
         }
 }
 
+
+struct gameInfo OriginBoard::getGameInfo()
+{
+        struct gameInfo GameInfo(this->row,this->column,this->gameBoard,this->gameAnswer);
+        return GameInfo;
+}

@@ -13,7 +13,11 @@
 #include <vector>
 #include <QFileInfo>
 #include <iostream>
+#include "Utils.h"
 using namespace std;
+
+class StartUI;
+
 namespace Ui {
 class OriginBoard;
 }
@@ -23,18 +27,15 @@ class OriginBoard : public QWidget
     Q_OBJECT
 
 public:
-    explicit OriginBoard(QWidget *parent = nullptr);
+    explicit OriginBoard(StartUI *parent = nullptr);
     ~OriginBoard();
     //load the file data
     void load(QTextStream);
     //init game board
     void initBoard();
-    //print game board
-    void printGameBoard();
-    //print answer board
-    void printAnswer();
     //init answer board
     void initAnswer(QTextStream&);
+    struct gameInfo getGameInfo();
 
 private slots:
     //when push will load file data ,and init game and answer board
@@ -43,6 +44,7 @@ private slots:
 private:
     //get ui
     Ui::OriginBoard *ui;
+    StartUI *startUI;
     //game board vector
     vector<vector<QChar>> gameBoard;
     //answer board vector
@@ -51,6 +53,7 @@ private:
     int row;
     //board column
     int column;
+    bool isLoad = false;
 };
 
 #endif // ORIGINBOARD_H
