@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "Utils.h"
 #include <iostream>
+#include <QGridLayout>
+#include <QPushButton>
+#include "QMouseEvent"
 using namespace std;
 
 class MainWindow;
@@ -22,7 +25,10 @@ public:
     void initGame(struct gameInfo&);
     void initBoard(vector<vector<QChar>>&);
     void initAnswer(vector<vector<QChar>>&);
-
+    void MineSweeperGUI();
+    void initState();
+    bool expandDig(int,int);
+    void printAllGameBoard();
 
 private slots:
     void on_gameBoardButon_clicked();
@@ -31,6 +37,9 @@ private slots:
 
     void on_gameStateButton_clicked();
 
+    void leftEnter(int i,int j);
+    void rightEnter(int i,int j);
+    void replayGame();
 
 private:
     Ui::Game *ui;

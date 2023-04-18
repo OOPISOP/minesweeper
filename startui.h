@@ -6,9 +6,12 @@
 #include <QMainWindow>
 #include "originboard.h"
 #include "assignboard.h"
+#include <QGridLayout>
+#include <QPushButton>
 #include "Utils.h"
 
 class MainWindow;
+class AssignBoard;
 
 namespace Ui {
 class StartUI;

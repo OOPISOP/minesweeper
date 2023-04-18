@@ -7,5 +7,8 @@
         <file>boards/board5.txt</file>
         <file>boards/boards.pri</file>
         <file>boards/boards.qrc</file>
+	<file>animations/BombExplosion.gif</file>
+	<file>animations/animations.pri</file>
+	<file>animations/animations.qrc</file>
     </qresource>
 </RCC>

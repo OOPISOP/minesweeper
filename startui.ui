@@ -6,141 +6,89 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>236</height>
+    <width>422</width>
+    <height>344</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>67</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>載入類型：</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="startGameButton">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>170</y>
-     <width>100</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>StartGame</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="gameAnswerButton">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>140</y>
-     <width>121</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Print GameAnswer</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="gameStateButton">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>140</y>
-     <width>121</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Print GameState</string>
-   </property>
-  </widget>
-  <widget class="QStackedWidget" name="stackedWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>90</y>
-     <width>371</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <widget class="QWidget" name="page"/>
-   <widget class="QWidget" name="page_2"/>
-  </widget>
-  <widget class="QPushButton" name="gameBoardButon">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>121</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Print GameBoard</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="gameState">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>30</y>
-     <width>58</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Standby</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>50</y>
-     <width>103</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>盤面檔</string>
-    </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="1" colspan="2">
+    <widget class="QComboBox" name="comboBox">
+     <item>
+      <property name="text">
+       <string>盤面檔</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>指定炸彈數量盤面</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>指定炸彈聲乘率盤面</string>
+      </property>
+     </item>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>指定炸彈數量盤面</string>
-    </property>
+   <item row="0" column="1" colspan="2">
+    <widget class="QLabel" name="gameState">
+     <property name="text">
+      <string>Standby</string>
+     </property>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>指定炸彈聲乘率盤面</string>
-    </property>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>載入類型：</string>
+     </property>
+    </widget>
    </item>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>GameState：</string>
-   </property>
-  </widget>
+   <item row="2" column="0" colspan="4">
+    <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QWidget" name="page"/>
+     <widget class="QWidget" name="page_2"/>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>GameState：</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QPushButton" name="gameBoardButon">
+     <property name="text">
+      <string>Print GameBoard</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="gameAnswerButton">
+     <property name="text">
+      <string>Print GameAnswer</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="2">
+    <widget class="QPushButton" name="gameStateButton">
+     <property name="text">
+      <string>Print GameState</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QPushButton" name="startGameButton">
+     <property name="text">
+      <string>StartGame</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

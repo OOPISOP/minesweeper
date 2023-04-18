@@ -38,7 +38,7 @@
    <widget class="QWidget" name="page"/>
    <widget class="QWidget" name="page_2"/>
   </widget>
-  <widget class="QSpinBox" name="spinBox_2">
+  <widget class="QSpinBox" name="cols">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -61,7 +61,7 @@
     <string>Rows :</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox">
+  <widget class="QSpinBox" name="rows">
    <property name="geometry">
     <rect>
      <x>50</x>

@@ -34,7 +34,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::startGame(struct gameInfo GameInfo)
 {
-
     game = new Game(this);
     game->initGame(GameInfo);
     ui->stackedWidget->addWidget(game);

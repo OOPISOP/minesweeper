@@ -2,6 +2,7 @@
 #include "ui_startui.h"
 #include "mainwindow.h"
 
+
 StartUI::StartUI(MainWindow *parent) :
     QWidget(parent),
     ui(new Ui::StartUI)
@@ -155,3 +156,5 @@ void StartUI::setLoadState(bool state)
 {
     this->loadState = state;
 }
+
+
