@@ -141,6 +141,28 @@ bool Game::expandDig(int inY, int inX)
     }
     ui->remainBlankCount->setText(QString::number(getGameData(gameBoard,row,column,'#') - ui->bombCount->text().toInt()));
     ui->openBlankCount->setText(QString::number(row*column-getGameData(gameBoard,row,column,'#')));
+    if(getGameData(gameBoard, row, column, '#') == 0)
+    {
+        printAllGameBoard();
+        qDebug() << "You win the game";
+        QDialog dialog;
+        QVBoxLayout layout(&dialog);
+        QHBoxLayout buttonLayout;
+        QLabel label("You win the game", &dialog);
+        layout.addWidget(&label);
+
+        QPushButton okButton("Replay", &dialog);
+        buttonLayout.addWidget(&okButton);
+        QObject::connect(&okButton, &QPushButton::clicked, this, &Game::replayGame);
+
+        QPushButton cancelButton("Quit", &dialog);
+        buttonLayout.addWidget(&cancelButton);
+        QObject::connect(&cancelButton, &QPushButton::clicked, qApp, &QApplication::quit);
+        layout.addLayout(&buttonLayout);
+        dialog.exec();
+
+        return false;
+    }
     return true;
 }
 

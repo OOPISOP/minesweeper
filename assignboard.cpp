@@ -8,6 +8,10 @@ AssignBoard::AssignBoard(StartUI *parent) :
 {
     ui->setupUi(this);
     startUI = parent;
+    ui->rows->setRange(1,10);
+    ui->rows->setValue(9);
+    ui->cols->setRange(1,10);
+    ui->cols->setValue(9);
     //init the amountBoard class
     amountBoard  = new MineAmountBoard(this);
     //init the rateBoard class

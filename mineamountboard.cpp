@@ -9,12 +9,16 @@
 #include "mineamountboard.h"
 #include "ui_mineamountboard.h"
 #include "assignboard.h"
+#include "QDebug"
 MineAmountBoard::MineAmountBoard(AssignBoard *parent) :
     QWidget(parent),
     ui(new Ui::MineAmountBoard)
 {
     ui->setupUi(this);
     assignBoard = parent;
+    ui->bomb->setMinimum(1);
+     ui->bomb->setMaximum(std::numeric_limits<int>::max());
+    ui->bomb->setValue(1);
 }
 
 MineAmountBoard::~MineAmountBoard()
@@ -28,6 +32,12 @@ void MineAmountBoard::on_pushButton_clicked()
     int bombs = ui->bomb->value();
     this->row = assignBoard->getRow();
     this->column = assignBoard->getCol();
+    if(row*column<bombs)
+    {
+        qDebug().noquote().nospace()<<"<Load RandomCount "<<row<<" "<<column<<" "<<bombs<<"> : Failed";
+        return;
+    }
+    qDebug().noquote().nospace()<<"<Load RandomCount "<<row<<" "<<column<<" "<<bombs<<"> : Success";
     initBoard();
     initAnswer(bombs);
     assignBoard->load(getGameInfo());
