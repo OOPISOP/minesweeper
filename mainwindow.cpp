@@ -9,27 +9,21 @@
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "startui.h"
+#include "game.h"
 #include <QMessageBox>
 #include <QFileInfo>
 #include<iostream>
 #include <QDebug>
-
-
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //init the originBoard class
-    originBoard = new OriginBoard(this);
-    assignBoard = new AssignBoard(this);
-    //add originBoard to stackedWidget
-    ui->stackedWidget->addWidget(originBoard);
-    //add assignBoard to stackedWidget
-    ui->stackedWidget->addWidget(assignBoard);
-    //set stackedWidget currentWidget is originBoard class
-    ui->stackedWidget->setCurrentWidget(originBoard);
+    startUI = new StartUI(this);
+    ui->stackedWidget->addWidget(startUI);
+    ui->stackedWidget->setCurrentWidget(startUI);
 
 }
 
@@ -37,47 +31,12 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-//Intent:when the comboBox current index changed ,changed the model
-//Pre:tarnsform into index
-//Post:save the index to boardIndex
-void MainWindow::on_comboBox_currentIndexChanged(int index)
-{
-    this->boardIndex = index;
-    if(boardIndex == 0)
-    {
-        //set stackedWidget currentWidget is originBoard class
-        ui->stackedWidget->setCurrentWidget(originBoard);
-    }
-    else if(boardIndex > 0)
-    {
-        //set stackedWidget currentWidget is assignBoard class
-        ui->stackedWidget->setCurrentWidget(assignBoard);
-        assignBoard->changeBoard(boardIndex);
-    }
 
-}
-//Intent:when the comboBox current index changed ,changed the model
-//Pre:tarnsform into index
-//Post:save the text
-void MainWindow::on_gameBoardButon_clicked()
-{
-    this->originBoard->printGameBoard();
-}
 
-//Intent:print the answer board
-//Pre:need originBoard class answer board
-//Post:print answer board
-void MainWindow::on_gameAnswerButton_clicked()
+void MainWindow::startGame(struct gameInfo GameInfo)
 {
-    this->originBoard->printAnswer();
+    game = new Game(this);
+    game->initGame(GameInfo);
+    ui->stackedWidget->addWidget(game);
+    ui->stackedWidget->setCurrentWidget(game);
 }
-
-//Intent:print the game state
-//Pre:state
-//Post:print state
-void MainWindow::on_gameStateButton_clicked()
-{
-    QString gameState = ui->gameState->text();
-    qDebug().nospace().noquote()<<"<Print GameState> : "<<gameState;
-}
-

@@ -10,27 +10,36 @@ CONFIG += c++17
 
 SOURCES += \
     assignboard.cpp \
+    game.cpp \
     main.cpp \
     mainwindow.cpp \
     mineamountboard.cpp \
     minerateboard.cpp \
+    mybutton.cpp \
     originboard.cpp \
-    MineSweeperGUI.cpp
+    startui.cpp
+
 
 HEADERS += \
+    Utils.h \
     assignboard.h \
+    game.h \
     mainwindow.h \
     mineamountboard.h \
     minerateboard.h \
+    mybutton.h \
     originboard.h \
-    MineSweeperGUI.h
+    startui.h
+
 
 FORMS += \
     assignboard.ui \
+    game.ui \
     mainwindow.ui \
     mineamountboard.ui \
     minerateboard.ui \
-    originboard.ui
+    originboard.ui \
+    startui.ui
 
 
 # Default rules for deployment.
