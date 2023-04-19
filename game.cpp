@@ -145,7 +145,7 @@ bool Game::expandDig(int inY, int inX)
     }
     ui->remainBlankCount->setText(QString::number(getGameData(gameBoard,row,column,'#') - ui->bombCount->text().toInt()));
     ui->openBlankCount->setText(QString::number(row*column-getGameData(gameBoard,row,column,'#')));
-    if(getGameData(gameBoard, row, column, '#') == 0)
+    if(ui->remainBlankCount->text().toInt() == 0)
     {
         printAllGameBoard();
         qDebug() << "You win the game";
@@ -171,21 +171,6 @@ bool Game::expandDig(int inY, int inX)
 }
 
 
-int gainGameDataChar(vector<vector<QChar>> &board,int row,int column,QChar check)
-{
-    int count = 0;
-    for (int r = 0; r < row; r++)
-    {
-        for (int c = 0; c < column; c++)
-        {
-            if (board[r][c] == check)
-            {
-                count++;
-            }
-        }
-    }
-    return count;
-}
 
 void Game::initGame(struct gameInfo &GameInfo)
 {
@@ -200,7 +185,7 @@ void Game::initGame(struct gameInfo &GameInfo)
 
 void Game::initState()
 {
-    ui->bombCount->setText(QString::number(gainGameDataChar(gameAnswer,row,column,'X')));
+    ui->bombCount->setText(QString::number(getGameData(gameAnswer,row,column,'X')));
     ui->flagCount->setText(QString::number(0));
     ui->openBlankCount->setText(QString::number(0));
     ui->remainBlankCount->setText(QString::number(row*column - ui->openBlankCount->text().toInt() - ui->bombCount->text().toInt()) );
@@ -310,7 +295,7 @@ void Game::leftEnter(int i,int j)
 
 void Game::rightEnter(int i,int j)
 {
-    if (gameBoard[i][j] == '0')
+    if (gameBoard[i][j] != '#' && gameBoard[i][j] != 'f' && gameBoard[i][j] != '?')
     {
         cout << "<RightClick " << i << " " << j << ">" << " : Failed" << endl;
     }
@@ -326,10 +311,12 @@ void Game::rightEnter(int i,int j)
         else if (gameBoard[i][j] == '?')
         {
             gameBoard[i][j] = '#';
+            ui->flagCount->setText(QString::number(ui->flagCount->text().toInt()-1));
         }
         else
         {
             gameBoard[i][j] = 'f';
+            ui->flagCount->setText(QString::number(ui->flagCount->text().toInt()+1));
         }
         if(gameBoard[i][j] == '#')
         {
