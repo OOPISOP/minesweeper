@@ -48,7 +48,6 @@ void Game::printAllGameBoard()
             if(gameAnswer[i][j] == 'X')
             {
                 QMovie *movie = new QMovie(":./animations/BombExplosion.gif");
-
                 connect(movie, &QMovie::frameChanged, [=]{
                     button->setIcon(movie->currentPixmap());
                 });
@@ -76,6 +75,7 @@ bool Game::expandDig(int inY, int inX)
         printAllGameBoard();
         qDebug() << "Lose game";
         QDialog dialog;
+        QObject::connect(&dialog, &QDialog::finished, qApp, &QApplication::quit);
         QVBoxLayout layout(&dialog);
         QHBoxLayout buttonLayout;
         QLabel label("You lose the game!", &dialog);
@@ -88,6 +88,7 @@ bool Game::expandDig(int inY, int inX)
         QPushButton cancelButton("Quit", &dialog);
         buttonLayout.addWidget(&cancelButton);
         QObject::connect(&cancelButton, &QPushButton::clicked, qApp, &QApplication::quit);
+
         layout.addLayout(&buttonLayout);
         dialog.exec();
 
