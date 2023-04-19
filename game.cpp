@@ -48,6 +48,7 @@ void Game::printAllGameBoard()
             if(gameAnswer[i][j] == 'X')
             {
                 QMovie *movie = new QMovie(":./animations/BombExplosion.gif");
+
                 connect(movie, &QMovie::frameChanged, [=]{
                     button->setIcon(movie->currentPixmap());
                 });
@@ -92,7 +93,7 @@ bool Game::expandDig(int inY, int inX)
 
         return false;
     }
-    else if (gameAnswer[inY][inX] == '0')
+    else if (gameAnswer[inY][inX] == '0' && gameBoard[inY][inX] != 'f')
     {
         // The input surround poistion
         int dir[8][2] = { {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0} };
@@ -108,7 +109,7 @@ bool Game::expandDig(int inY, int inX)
                 int nextX = x + dir[i][1];
                 if (nextX < 0 || nextY < 0 || nextY >= row || nextX >= column)
                     continue;
-                if (gameBoard[nextY][nextX] == '0')
+                if (gameBoard[nextY][nextX] == '0' || gameBoard[nextY][nextX] == 'f')
                 {
                     continue;
                 }
@@ -117,25 +118,29 @@ bool Game::expandDig(int inY, int inX)
                 button->setDown(true);ui->gridLayout->itemAtPosition(nextY,nextX);
                 if (tot != '0')
                 {
-                    gameBoard[nextY][nextX] = tot;
-                    button->setText(tot);
+                    if(gameBoard[nextY][nextX] != 'f')
+                    {
+                        gameBoard[nextY][nextX] = tot;
+                        button->setText(tot);
+                    }
                 }
                 else
                 {
-                    if(gameBoard[nextY][nextX] != 'f' && gameBoard[nextY][nextX] != '?' )
+                    if(gameBoard[nextY][nextX] != 'f' )
                     {
                         gameBoard[nextY][nextX] = '0';
+                        button->setText("");
                         que.push(pair<int, int>(nextY, nextX));
                     }
                 }
             }
-            if(gameBoard[y][x] != 'f' && gameBoard[y][x] != '?' )
-            {
-                gameBoard[y][x] = '0';
-            }
-            QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(y, x)->widget());
-            button->setDown(true);ui->gridLayout->itemAtPosition(y,x);
         }
+        if(gameBoard[inY][inX] != 'f')
+        {
+            gameBoard[inY][inX] = '0';
+        }
+        QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(inY, inX)->widget());
+        button->setDown(true);ui->gridLayout->itemAtPosition(inY,inX);
     }
     else
     {
@@ -143,9 +148,9 @@ bool Game::expandDig(int inY, int inX)
         QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(inY, inX)->widget());
         button->setText(gameBoard[inY][inX]);
     }
-    ui->remainBlankCount->setText(QString::number(getGameData(gameBoard,row,column,'#') - ui->bombCount->text().toInt()));
-    ui->openBlankCount->setText(QString::number(row*column-getGameData(gameBoard,row,column,'#')));
-    if(ui->remainBlankCount->text().toInt() == 0)
+    ui->openBlankCount->setText(QString::number(row*column-getGameData(gameBoard,row,column,'#')  - getGameData(gameBoard,row,column,'f') - getGameData(gameBoard,row,column,'?')));
+    ui->remainBlankCount->setText(QString::number(row*column - ui->bombCount->text().toInt() - ui->openBlankCount->text().toInt()));
+    if(ui->remainBlankCount->text().toInt() ==  0 )
     {
         printAllGameBoard();
         qDebug() << "You win the game";
@@ -222,7 +227,7 @@ Game::~Game()
     delete ui;
 }
 
-void Game::on_gameBoardButon_clicked()
+void Game::on_gameBoardButton_clicked()
 {
     qDebug().nospace().noquote()<<"<Print GameBoard> :";
     for(int i=0;i<row;i++)
@@ -282,14 +287,13 @@ void Game::MineSweeperGUI()
 
 void Game::leftEnter(int i,int j)
 {
-    if (gameBoard[i][j] != '#' || gameBoard[i][j] == 'f')
+    if (gameBoard[i][j] != '#' && gameBoard[i][j] == 'f')
     {
         cout << "<LeftClick " << i << " " << j << ">" << " : Failed" << endl;
     }
     else
     {
-        cout << "<LeftClick " << i << " " << j << ">" << " : Success" << endl;
-        expandDig(i, j);
+      expandDig(i,j);
     }
 }
 
@@ -307,11 +311,11 @@ void Game::rightEnter(int i,int j)
         if (gameBoard[i][j] == 'f')
         {
             gameBoard[i][j] = '?';
+            ui->flagCount->setText(QString::number(ui->flagCount->text().toInt()-1));
         }
         else if (gameBoard[i][j] == '?')
         {
             gameBoard[i][j] = '#';
-            ui->flagCount->setText(QString::number(ui->flagCount->text().toInt()-1));
         }
         else
         {
@@ -321,11 +325,16 @@ void Game::rightEnter(int i,int j)
         if(gameBoard[i][j] == '#')
         {
             button->setChecked(false);ui->gridLayout->itemAtPosition(i,j);
+            button->setIcon(QIcon());
             button->setText("");
         }
-        else
+        else if(gameBoard[i][j] == 'f')
         {
-            button->setText(gameBoard[i][j]);
+            button->setIcon(QIcon(":./images/flag.png"));
+        }
+        else if(gameBoard[i][j] == '?')
+        {
+            button->setIcon(QIcon(":./images/question_mark.png"));
         }
     }
 }
@@ -339,4 +348,8 @@ void Game::replayGame()
         qApp->quit();
 
 }
+
+
+
+
 

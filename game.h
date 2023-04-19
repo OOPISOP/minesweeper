@@ -31,7 +31,8 @@ public:
     void printAllGameBoard();
 
 private slots:
-    void on_gameBoardButon_clicked();
+
+    void on_gameBoardButton_clicked();
 
     void on_gameAnswerButton_clicked();
 
@@ -40,6 +41,8 @@ private slots:
     void leftEnter(int i,int j);
     void rightEnter(int i,int j);
     void replayGame();
+
+
 
 private:
     Ui::Game *ui;

@@ -10,5 +10,10 @@
 	<file>animations/BombExplosion.gif</file>
 	<file>animations/animations.pri</file>
 	<file>animations/animations.qrc</file>
+	<file>images/bomb.png</file>
+	<file>images/flag.png</file>
+	<file>images/question_mark.png</file>
+	<file>images/images.pri</file>
+	<file>images/images.qrc</file>
     </qresource>
 </RCC>

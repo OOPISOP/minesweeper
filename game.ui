@@ -24,7 +24,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="gameState">
        <property name="text">
         <string>Playing</string>
        </property>
@@ -99,7 +99,7 @@
    <item row="3" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
-      <widget class="QPushButton" name="gameBoardButon">
+      <widget class="QPushButton" name="gameBoardButton">
        <property name="text">
         <string>Print GameBoard</string>
        </property>
@@ -113,7 +113,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="gameState">
+      <widget class="QPushButton" name="gameStateButton">
        <property name="text">
         <string>Print GameState</string>
        </property>
