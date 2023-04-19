@@ -129,6 +129,10 @@ bool Game::expandDig(int inY, int inX)
                     }
                 }
             }
+            if(gameBoard[y][x] != 'f' && gameBoard[y][x] != '?' )
+            {
+                gameBoard[y][x] = '0';
+            }
             QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(y, x)->widget());
             button->setDown(true);ui->gridLayout->itemAtPosition(y,x);
         }
@@ -265,7 +269,8 @@ void Game::on_gameAnswerButton_clicked()
 
 void Game::on_gameStateButton_clicked()
 {
-
+    QString gameState = ui->gameState->text();
+    qDebug().nospace().noquote()<<"<Print GameState> : "<<gameState;
 }
 
 
