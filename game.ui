@@ -113,7 +113,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="gameStateButton">
+      <widget class="QPushButton" name="gameState">
        <property name="text">
         <string>Print GameState</string>
        </property>
