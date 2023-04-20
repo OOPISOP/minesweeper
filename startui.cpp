@@ -1,3 +1,12 @@
+/***********************************************************************
+ * File: startui.cpp
+ * Author: B11115033
+ * Create Date: 2023/04/18
+ * Editor: B11115033
+ * Update Date: 2023/04/20
+ * Description: Imp the startui class ,it is the first ui we  see
+***********************************************************************/
+
 #include "startui.h"
 #include "ui_startui.h"
 #include "mainwindow.h"
@@ -14,7 +23,6 @@ StartUI::StartUI(MainWindow *parent) :
     ui->stackedWidget->addWidget(originBoard);
     ui->stackedWidget->addWidget(assignBoard);
     ui->stackedWidget->setCurrentWidget(originBoard);
-    adjustSize();
 }
 
 StartUI::~StartUI()

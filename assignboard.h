@@ -1,3 +1,11 @@
+/***********************************************************************
+ * File: assignboard.h
+ * Author: B11115033
+ * Create Date: 2023/04/18
+ * Editor: B11115033
+ * Update Date: 2023/04/20
+ * Description: define the assignboard class ,it can change the board amountBoard and rateBoard
+***********************************************************************/
 #ifndef ASSIGNBOARD_H
 #define ASSIGNBOARD_H
 

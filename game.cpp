@@ -1,3 +1,11 @@
+/***********************************************************************
+ * File: game.cpp
+ * Author: B11115033
+ * Create Date: 2023/04/16
+ * Editor: B11115033
+ * Update Date: 2023/04/20
+ * Description: Imp the game
+***********************************************************************/
 #include "game.h"
 #include "ui_game.h"
 #include "mainwindow.h"
@@ -14,6 +22,7 @@
 #include <QMovie>
 #include <mydialog.h>
 #include <QLabel>
+#include <QStackedWidget>
 
 
 Game::Game(MainWindow *parent) :
@@ -23,6 +32,9 @@ Game::Game(MainWindow *parent) :
     ui->setupUi(this);
     mainWindow = parent;
 }
+//Intent:get the char times in the board
+//Pre:need 2D vector board,int row and col,char check
+//Pos:return the check char times
 int getGameData(vector<vector<QChar>> &map, int row, int col, char check)
 {
     int count = 0;
@@ -38,7 +50,9 @@ int getGameData(vector<vector<QChar>> &map, int row, int col, char check)
     }
     return count;
 }
-
+//Intent:print the all game board in game end
+//Pre:need board,row ,col
+//Pos:print the game board,and set the button icon
 void Game::printAllGameBoard()
 {
     for(int i=0;i<row;i++)
@@ -130,6 +144,7 @@ bool Game::expandDig(int inY, int inX)
                 QChar tot = gameAnswer[nextY][nextX];
                 QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(nextY, nextX)->widget());
                 button->setDown(true);ui->gridLayout->itemAtPosition(nextY,nextX);
+                button->setIcon(QIcon());
                 if (tot != '0')
                 {
                     if(gameBoard[nextY][nextX] != 'f')
@@ -155,12 +170,14 @@ bool Game::expandDig(int inY, int inX)
         }
         QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(inY, inX)->widget());
         button->setDown(true);ui->gridLayout->itemAtPosition(inY,inX);
+         button->setIcon(QIcon());
     }
     else
     {
         gameBoard[inY][inX] = gameAnswer[inY][inX];
         QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(inY, inX)->widget());
         button->setText(gameBoard[inY][inX]);
+        button->setIcon(QIcon());
     }
     ui->openBlankCount->setText(QString::number(row*column-getGameData(gameBoard,row,column,'#')  - getGameData(gameBoard,row,column,'f') - getGameData(gameBoard,row,column,'?')));
     ui->remainBlankCount->setText(QString::number(row*column - ui->bombCount->text().toInt() - ui->openBlankCount->text().toInt()));
@@ -169,14 +186,22 @@ bool Game::expandDig(int inY, int inX)
         printAllGameBoard();
         qDebug() << "You win the game";
         QDialog dialog;
+        QObject::connect(&dialog, &QDialog::finished, qApp, &QApplication::quit);
         QVBoxLayout layout(&dialog);
         QHBoxLayout buttonLayout;
-        QLabel label("You win the game", &dialog);
+        QLabel label("You lose the game", &dialog);
         layout.addWidget(&label);
 
         QPushButton okButton("Replay", &dialog);
         buttonLayout.addWidget(&okButton);
-        QObject::connect(&okButton, &QPushButton::clicked, this, &Game::replayGame);
+        // QObject::connect(&okButton, &QPushButton::clicked, this, &Game::replayGame);
+        // 連接按鈕的 clicked() 信號到一個槽函式
+        QObject::connect(&okButton, &QPushButton::clicked, [&dialog, this]() {
+            // 關閉 QDialog
+            dialog.hide();
+            // 執行您想要執行的函式
+            replayGame();
+        });
 
         QPushButton cancelButton("Quit", &dialog);
         buttonLayout.addWidget(&cancelButton);
@@ -288,7 +313,7 @@ void Game::MineSweeperGUI()
         {
             MyButton* button = new MyButton(this);
             button->setFixedSize(50, 50);
-            button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+            //button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
             ui->gridLayout->addWidget(button,i,j);
             connect(button, &MyButton::leftButtonClicked, this, [this, i,j]() { leftEnter(i, j); });
             connect(button, &MyButton::rightButtonClicked, this, [this, i,j]() { rightEnter(i, j); });
@@ -301,12 +326,13 @@ void Game::MineSweeperGUI()
 
 void Game::leftEnter(int i,int j)
 {
-    if (gameBoard[i][j] != '#' && gameBoard[i][j] == 'f')
+    if (gameBoard[i][j] != '#' && gameBoard[i][j] != '?')
     {
         cout << "<LeftClick " << i << " " << j << ">" << " : Failed" << endl;
     }
     else
     {
+      cout << "<LeftClick " << i << " " << j << ">" << " : Success" << endl;
       expandDig(i,j);
     }
 }
@@ -322,6 +348,7 @@ void Game::rightEnter(int i,int j)
         cout << "<RightClick " << i << " " << j << ">" << " : Success" << endl;
         QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(i, j)->widget());
        // button->setDown(true);ui->gridLayout->itemAtPosition(i,j);
+         button->setText("");
         if (gameBoard[i][j] == 'f')
         {
             gameBoard[i][j] = '?';
@@ -340,7 +367,6 @@ void Game::rightEnter(int i,int j)
         {
             button->setChecked(false);ui->gridLayout->itemAtPosition(i,j);
             button->setIcon(QIcon());
-            button->setText("");
         }
         else if(gameBoard[i][j] == 'f')
         {
@@ -356,10 +382,8 @@ void Game::rightEnter(int i,int j)
 void Game::replayGame()
 {
     qDebug().noquote().nospace()<<"<Replay> : Success";
-
     // 重頭開始的按鈕事件處理函式
     mainWindow->replayGame();
-
 }
 
 
