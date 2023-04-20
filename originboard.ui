@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="loadButton">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>0</y>
+     <x>230</x>
+     <y>10</y>
      <width>60</width>
      <height>32</height>
     </rect>

@@ -16,6 +16,7 @@ SOURCES += \
     mineamountboard.cpp \
     minerateboard.cpp \
     mybutton.cpp \
+    mydialog.cpp \
     originboard.cpp \
     startui.cpp
 
@@ -28,6 +29,7 @@ HEADERS += \
     mineamountboard.h \
     minerateboard.h \
     mybutton.h \
+    mydialog.h \
     originboard.h \
     startui.h
 

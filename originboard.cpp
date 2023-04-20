@@ -24,6 +24,7 @@ OriginBoard::OriginBoard(StartUI *parent) :
 {
     ui->setupUi(this);
     startUI = parent;
+    adjustSize();
 }
 
 OriginBoard::~OriginBoard()

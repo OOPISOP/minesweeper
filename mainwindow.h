@@ -28,6 +28,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void startGame(struct gameInfo);
+    void replayGame();
 
 private slots:
 

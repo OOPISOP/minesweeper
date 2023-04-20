@@ -12,6 +12,7 @@
 #include <QApplication>
 #include <QProcess>
 #include <QMovie>
+#include <mydialog.h>
 #include <QLabel>
 
 
@@ -44,15 +45,10 @@ void Game::printAllGameBoard()
     {
         for(int j=0;j<column;j++)
         {
-             QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(i, j)->widget());
+            QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(i, j)->widget());
             if(gameAnswer[i][j] == 'X')
             {
-                QMovie *movie = new QMovie(":./animations/BombExplosion.gif");
-                connect(movie, &QMovie::frameChanged, [=]{
-                    button->setIcon(movie->currentPixmap());
-                });
-                movie->start();
-
+                button->setIcon(QIcon(":./images/bomb.png"));
             }
             else if(gameAnswer[i][j] == '0')
             {
@@ -72,18 +68,35 @@ bool Game::expandDig(int inY, int inX)
 {
     if (gameAnswer[inY][inX] == 'X')
     {
+         QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(inY, inX)->widget());
+        QMovie *movie = new QMovie(":./animations/BombExplosion.gif");
+         button->setIcon(QIcon(movie->currentPixmap()));
+
+         connect(movie, &QMovie::frameChanged, this, [=]() {
+             button->setIcon(QIcon(movie->currentPixmap()));
+         });
+
+         movie->start();
         printAllGameBoard();
-        qDebug() << "Lose game";
+        qDebug() << "You lose the game";
         QDialog dialog;
         QObject::connect(&dialog, &QDialog::finished, qApp, &QApplication::quit);
         QVBoxLayout layout(&dialog);
         QHBoxLayout buttonLayout;
-        QLabel label("You lose the game!", &dialog);
+        QLabel label("You lose the game", &dialog);
         layout.addWidget(&label);
 
         QPushButton okButton("Replay", &dialog);
         buttonLayout.addWidget(&okButton);
-        QObject::connect(&okButton, &QPushButton::clicked, this, &Game::replayGame);
+       // QObject::connect(&okButton, &QPushButton::clicked, this, &Game::replayGame);
+        // 連接按鈕的 clicked() 信號到一個槽函式
+        QObject::connect(&okButton, &QPushButton::clicked, [&dialog, this]() {
+            // 關閉 QDialog
+            dialog.hide();
+            // 執行您想要執行的函式
+            replayGame();
+        });
+
 
         QPushButton cancelButton("Quit", &dialog);
         buttonLayout.addWidget(&cancelButton);
@@ -308,7 +321,7 @@ void Game::rightEnter(int i,int j)
     {
         cout << "<RightClick " << i << " " << j << ">" << " : Success" << endl;
         QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(i, j)->widget());
-        button->setDown(true);ui->gridLayout->itemAtPosition(i,j);
+       // button->setDown(true);ui->gridLayout->itemAtPosition(i,j);
         if (gameBoard[i][j] == 'f')
         {
             gameBoard[i][j] = '?';
@@ -340,13 +353,12 @@ void Game::rightEnter(int i,int j)
     }
 }
 
-
 void Game::replayGame()
 {
-    // 重頭開始的按鈕事件處理函式
+    qDebug().noquote().nospace()<<"<Replay> : Success";
 
-        QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
-        qApp->quit();
+    // 重頭開始的按鈕事件處理函式
+    mainWindow->replayGame();
 
 }
 

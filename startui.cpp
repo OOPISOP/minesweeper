@@ -14,6 +14,7 @@ StartUI::StartUI(MainWindow *parent) :
     ui->stackedWidget->addWidget(originBoard);
     ui->stackedWidget->addWidget(assignBoard);
     ui->stackedWidget->setCurrentWidget(originBoard);
+    adjustSize();
 }
 
 StartUI::~StartUI()

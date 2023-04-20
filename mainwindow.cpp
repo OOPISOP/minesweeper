@@ -24,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent)
     startUI = new StartUI(this);
     ui->stackedWidget->addWidget(startUI);
     ui->stackedWidget->setCurrentWidget(startUI);
-
 }
 
 MainWindow::~MainWindow()
@@ -40,3 +39,19 @@ void MainWindow::startGame(struct gameInfo GameInfo)
     ui->stackedWidget->addWidget(game);
     ui->stackedWidget->setCurrentWidget(game);
 }
+
+void MainWindow::replayGame()
+{
+    int count = ui->stackedWidget->count();
+    for (int i = 0; i < count; i++) {
+        QWidget* widget = ui->stackedWidget->widget(i);
+        if (widget) {
+            ui->stackedWidget->removeWidget(widget);
+            delete widget;
+        }
+    }
+    startUI = new StartUI(this);
+    ui->stackedWidget->addWidget(startUI);
+    ui->stackedWidget->setCurrentWidget(startUI);
+}
+
