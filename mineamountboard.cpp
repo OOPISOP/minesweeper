@@ -17,7 +17,7 @@ MineAmountBoard::MineAmountBoard(AssignBoard *parent) :
     ui->setupUi(this);
     assignBoard = parent;
     ui->bomb->setMinimum(1);
-     ui->bomb->setMaximum(std::numeric_limits<int>::max());
+    ui->bomb->setMaximum(std::numeric_limits<int>::max());
     ui->bomb->setValue(1);
 }
 

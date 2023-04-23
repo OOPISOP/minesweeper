@@ -10,10 +10,11 @@
 #define ASSIGNBOARD_H
 
 #include <QWidget>
-#include "minerateboard.h"
+
 
 class StartUI;
 class MineAmountBoard;
+class MineRateBoard;
 namespace Ui {
 class AssignBoard;
 }

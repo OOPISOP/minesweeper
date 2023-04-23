@@ -15,6 +15,12 @@
 #include <QFileInfo>
 #include<iostream>
 #include <QDebug>
+#include <QMediaPlayer>
+#include <QSoundEffect>
+#include <QAudioOutput>
+
+#include <QFile>
+#include <QUrl>
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,6 +40,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::startGame(struct gameInfo GameInfo)
 {
+    QMediaPlayer * player = new QMediaPlayer(this);
+    //QUrl url = QUrl("qrc:///music/sound.mp3");
+    player->setSource(QUrl::fromLocalFile(":./Road_to_Dazir.mp3"));
+    player->play();
     game = new Game(this);
     game->initGame(GameInfo);
     ui->stackedWidget->addWidget(game);

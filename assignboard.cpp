@@ -8,6 +8,7 @@
 ***********************************************************************/
 #include "assignboard.h"
 #include "mineamountboard.h"
+#include "minerateboard.h"
 #include "ui_assignboard.h"
 #include "startui.h"
 AssignBoard::AssignBoard(StartUI *parent) :
