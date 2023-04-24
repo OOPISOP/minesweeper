@@ -6,7 +6,6 @@
  * Update Date: 2023/04/16
  * Description: Imp the main window
 ***********************************************************************/
-
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "startui.h"
@@ -15,12 +14,6 @@
 #include <QFileInfo>
 #include<iostream>
 #include <QDebug>
-#include <QMediaPlayer>
-#include <QSoundEffect>
-#include <QAudioOutput>
-
-#include <QFile>
-#include <QUrl>
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -30,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     startUI = new StartUI(this);
     ui->stackedWidget->addWidget(startUI);
     ui->stackedWidget->setCurrentWidget(startUI);
+    resize(500,350);
 }
 
 MainWindow::~MainWindow()
@@ -42,10 +36,6 @@ MainWindow::~MainWindow()
 //Pos:turn to game
 void MainWindow::startGame(struct gameInfo GameInfo)
 {
-    QMediaPlayer * player = new QMediaPlayer(this);
-    //QUrl url = QUrl("qrc:///music/sound.mp3");
-    player->setSource(QUrl::fromLocalFile(":./Road_to_Dazir.mp3"));
-    player->play();
     game = new Game(this);
     game->initGame(GameInfo);
     ui->stackedWidget->addWidget(game);
@@ -63,5 +53,6 @@ void MainWindow::replayGame()
     ui->stackedWidget->addWidget(startUI);
     ui->stackedWidget->setCurrentWidget(startUI);
     adjustSize();
+    resize(500,350);
 }
 

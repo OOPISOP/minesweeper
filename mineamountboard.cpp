@@ -63,8 +63,8 @@ void MineAmountBoard::initAnswer(int bombs)
     // Random set mines poistion
     for (int mine = 0; mine < bombs; mine++)
     {
-        int rowP = arc4random_uniform(row);
-        int colP = arc4random_uniform(column);
+        int rowP = random()%row;
+        int colP = random()%column;
 
         if (gameAnswer[rowP][colP] == 'X')
         {
