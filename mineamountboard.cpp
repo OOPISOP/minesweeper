@@ -26,7 +26,9 @@ MineAmountBoard::~MineAmountBoard()
     delete ui;
 }
 
-
+//Intent:load the game
+//Pre:need bombs,row,column,click the load button
+//Pos:if success print sucess or print failed
 void MineAmountBoard::on_pushButton_clicked()
 {
     int bombs = ui->bomb->value();
@@ -136,7 +138,9 @@ void MineAmountBoard::initBoard()
     }
 }
 
-
+//Intent:set the game Info
+//Pre:need row column gameBoard gameAnswer
+//Pos:return GameInfo
 struct gameInfo MineAmountBoard::getGameInfo()
 {
     struct gameInfo GameInfo(this->row,this->column,this->gameBoard,this->gameAnswer);

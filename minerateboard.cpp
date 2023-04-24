@@ -26,6 +26,9 @@ MineRateBoard::~MineRateBoard()
 {
     delete ui;
 }
+//Intent:init and load the game
+//Pre:need rate row and column and click the laod button
+//Post load the game
 void MineRateBoard::on_pushButton_clicked()
 {
     double rate = ui->rate->value();
@@ -41,7 +44,6 @@ void MineRateBoard::on_pushButton_clicked()
 //Post:set mine and number of mine around
 void MineRateBoard::initAnswer(double rate)
 {
-    // 计算需要生成的炸弹数
     int totaCells = row * column;
     double bombs = totaCells * rate;
     qDebug().noquote().nospace()<<"<Load Rate "<<row<<" "<<column<<" "<<bombs<<"> : Success";
@@ -134,6 +136,9 @@ void MineRateBoard::initBoard()
 }
 
 
+//Intent:set the game Info
+//Pre:need row column gameBoard gameAnswer
+//Pos:return GameInfo
 struct gameInfo MineRateBoard::getGameInfo()
 {
     struct gameInfo GameInfo(this->row,this->column,this->gameBoard,this->gameAnswer);

@@ -3,7 +3,7 @@
  * Author: B11115033
  * Create Date: 2023/04/18
  * Editor: B11115033
- * Update Date: 2023/04/20
+ * Update Date: 2023/04/24
  * Description: Imp the startui class ,it is the first ui we  see
 ***********************************************************************/
 
@@ -23,6 +23,7 @@ StartUI::StartUI(MainWindow *parent) :
     ui->stackedWidget->addWidget(originBoard);
     ui->stackedWidget->addWidget(assignBoard);
     ui->stackedWidget->setCurrentWidget(originBoard);
+    adjustSize();
 }
 
 StartUI::~StartUI()
@@ -85,14 +86,18 @@ void StartUI::on_startGameButton_clicked()
     }
 
 }
-
+//Intent:get game info
+//Pre:need game info
+//Pos:return GameInfo
 struct gameInfo StartUI::getGameInfo()
 {
     struct gameInfo GameInfo(this->row,this->column,this->gameBoard,this->gameAnswer);
     return GameInfo;
 }
 
-
+//Intent:set board
+//Pre:need gameinfo
+//Post init board init answer
 void StartUI::setBoard(struct gameInfo GameInfo)
 {
     this->row = GameInfo.row;
@@ -101,6 +106,9 @@ void StartUI::setBoard(struct gameInfo GameInfo)
     initAnswer(GameInfo.gameAnswer);
 }
 
+//Intent:init board
+//Pre:need board
+//Pos:init board
 void StartUI::initBoard(vector<vector<QChar>> &board)
 {
     this->gameBoard.reserve(row);
@@ -113,7 +121,9 @@ void StartUI::initBoard(vector<vector<QChar>> &board)
         }
     }
 }
-
+//Intent:init answer
+//Pre:need answer
+//Pos:init answer
 void StartUI::initAnswer(vector<vector<QChar>> &answer)
 {
     this->gameAnswer.reserve(row);
@@ -161,6 +171,9 @@ void StartUI::printAnswer()
         qDebug().nospace().noquote()<<row;
     }
 }
+//Intent:set load state
+//Pre:need state
+//Post:set load state
 void StartUI::setLoadState(bool state)
 {
     this->loadState = state;

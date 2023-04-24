@@ -37,7 +37,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+//Intent:start the game
+//Pre:need GameInfo,need to load the game,need click the start button
+//Pos:turn to game
 void MainWindow::startGame(struct gameInfo GameInfo)
 {
     QMediaPlayer * player = new QMediaPlayer(this);
@@ -49,13 +51,17 @@ void MainWindow::startGame(struct gameInfo GameInfo)
     ui->stackedWidget->addWidget(game);
     ui->stackedWidget->setCurrentWidget(game);
 }
-
+//Intent: replay the game
+//Pre:need push the replay button
+//Pos:turn to  startUI and set the window size
 void MainWindow::replayGame()
 {
     game->deleteLater();
     startUI->deleteLater();
+    ui->setupUi(this);
     startUI = new StartUI(this);
     ui->stackedWidget->addWidget(startUI);
     ui->stackedWidget->setCurrentWidget(startUI);
+    adjustSize();
 }
 

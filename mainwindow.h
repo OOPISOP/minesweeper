@@ -27,7 +27,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    //start game
     void startGame(struct gameInfo);
+    //replay game
     void replayGame();
 
 private slots:

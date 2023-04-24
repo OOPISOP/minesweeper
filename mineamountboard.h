@@ -29,7 +29,9 @@ class MineAmountBoard : public QWidget
 public:
     explicit MineAmountBoard(AssignBoard *parent = nullptr);
     ~MineAmountBoard();
+    //get game info
     struct gameInfo getGameInfo();
+    //init game board
     void initBoard();
     //init answer board
     void initAnswer(int bombs);
