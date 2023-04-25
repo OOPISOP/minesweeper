@@ -1,5 +1,14 @@
+/***********************************************************************
+ * File: assignboard.cpp
+ * Author: B11115033
+ * Create Date: 2023/04/18
+ * Editor: B11115033
+ * Update Date: 2023/04/20
+ * Description: Imp the assignboard class ,it can change the board amountBoard and rateBoard
+***********************************************************************/
 #include "assignboard.h"
 #include "mineamountboard.h"
+#include "minerateboard.h"
 #include "ui_assignboard.h"
 #include "startui.h"
 AssignBoard::AssignBoard(StartUI *parent) :
@@ -36,7 +45,6 @@ void AssignBoard::changeBoard(int index)
     else if(index == 2)
     {
         ui->stackedWidget->setCurrentWidget(rateBoard);
-        //rateBoard->setRowCol(row,col);
     }
 }
 

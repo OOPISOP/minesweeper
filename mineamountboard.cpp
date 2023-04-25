@@ -17,7 +17,7 @@ MineAmountBoard::MineAmountBoard(AssignBoard *parent) :
     ui->setupUi(this);
     assignBoard = parent;
     ui->bomb->setMinimum(1);
-     ui->bomb->setMaximum(std::numeric_limits<int>::max());
+    ui->bomb->setMaximum(std::numeric_limits<int>::max());
     ui->bomb->setValue(1);
 }
 
@@ -26,7 +26,9 @@ MineAmountBoard::~MineAmountBoard()
     delete ui;
 }
 
-
+//Intent:load the game
+//Pre:need bombs,row,column,click the load button
+//Pos:if success print sucess or print failed
 void MineAmountBoard::on_pushButton_clicked()
 {
     int bombs = ui->bomb->value();
@@ -49,8 +51,8 @@ void MineAmountBoard::on_pushButton_clicked()
 void MineAmountBoard::initAnswer(int bombs)
 {
     //init the board row and column size
-    this->gameAnswer.reserve(row);
-    for(int i=0;i<row;i++)this->gameAnswer[i].reserve(column);
+    this->gameAnswer.resize(row);
+    for(int i=0;i<row;i++)this->gameAnswer[i].resize(column);
     for(int i=0;i<row;i++)
     {
         for(int j=0;j<column;j++)
@@ -61,8 +63,8 @@ void MineAmountBoard::initAnswer(int bombs)
     // Random set mines poistion
     for (int mine = 0; mine < bombs; mine++)
     {
-        int rowP = arc4random_uniform(row);
-        int colP = arc4random_uniform(column);
+        int rowP = random()%row;
+        int colP = random()%column;
 
         if (gameAnswer[rowP][colP] == 'X')
         {
@@ -125,8 +127,8 @@ void MineAmountBoard::initAnswer(int bombs)
 //Post:init game boar
 void MineAmountBoard::initBoard()
 {
-    this->gameBoard.reserve(row);
-    for(int i=0;i<row;i++)this->gameBoard[i].reserve(column);
+    this->gameBoard.resize(row);
+    for(int i=0;i<row;i++)this->gameBoard[i].resize(column);
     for(int i=0;i<row;i++)
     {
         for(int j=0;j<column;j++)
@@ -136,7 +138,9 @@ void MineAmountBoard::initBoard()
     }
 }
 
-
+//Intent:set the game Info
+//Pre:need row column gameBoard gameAnswer
+//Pos:return GameInfo
 struct gameInfo MineAmountBoard::getGameInfo()
 {
     struct gameInfo GameInfo(this->row,this->column,this->gameBoard,this->gameAnswer);

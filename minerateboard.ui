@@ -16,7 +16,7 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>130</x>
      <y>10</y>
      <width>61</width>
      <height>21</height>
@@ -39,7 +39,7 @@
     <string>炸彈生成率</string>
    </property>
   </widget>
-  <widget class="QDoubleSpinBox" name="doubleSpinBox">
+  <widget class="QDoubleSpinBox" name="rate">
    <property name="geometry">
     <rect>
      <x>80</x>

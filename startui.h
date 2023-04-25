@@ -1,3 +1,11 @@
+/***********************************************************************
+ * File: startui.h
+ * Author: B11115033
+ * Create Date: 2023/04/18
+ * Editor: B11115033
+ * Update Date: 2023/04/20
+ * Description: define the startui class ,it is the first ui we  see
+***********************************************************************/
 #ifndef STARTUI_H
 #define STARTUI_H
 
