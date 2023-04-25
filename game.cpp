@@ -253,8 +253,8 @@ void Game::initState()
 //Pos:init the game  board
 void Game::initBoard(vector<vector<QChar>> &board)
 {
-    this->gameBoard.reserve(row);
-    for(int i=0;i<row;i++)this->gameBoard[i].reserve(column);
+    this->gameBoard.resize(row);
+    for(int i=0;i<row;i++)this->gameBoard[i].resize(column);
     for(int i=0;i<row;i++)
     {
         for(int j=0;j<column;j++)
@@ -268,8 +268,8 @@ void Game::initBoard(vector<vector<QChar>> &board)
 //Pos:init the game answer board
 void Game::initAnswer(vector<vector<QChar>> &answer)
 {
-    this->gameAnswer.reserve(row);
-    for(int i=0;i<row;i++)this->gameAnswer[i].reserve(column);
+    this->gameAnswer.resize(row);
+    for(int i=0;i<row;i++)this->gameAnswer[i].resize(column);
     for(int i=0;i<row;i++)
     {
         for(int j=0;j<column;j++)

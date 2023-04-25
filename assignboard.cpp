@@ -45,7 +45,6 @@ void AssignBoard::changeBoard(int index)
     else if(index == 2)
     {
         ui->stackedWidget->setCurrentWidget(rateBoard);
-        //rateBoard->setRowCol(row,col);
     }
 }
 

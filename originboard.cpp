@@ -51,8 +51,8 @@ void OriginBoard::load(QTextStream in)
 void OriginBoard::initAnswer(QTextStream& in)
 {
     //init the board row and column size
-    this->gameAnswer.reserve(row);
-    for(int i=0;i<row;i++)this->gameAnswer[i].reserve(column);
+    this->gameAnswer.resize(row);
+    for(int i=0;i<row;i++)this->gameAnswer[i].resize(column);
     //get the file data and set the boar
     for(int i=0;!in.atEnd()&&i<row;i++)
     {
@@ -120,8 +120,8 @@ void OriginBoard::initAnswer(QTextStream& in)
 //Post:init game boar
 void OriginBoard::initBoard()
 {
-    this->gameBoard.reserve(row);
-    for(int i=0;i<row;i++)this->gameBoard[i].reserve(column);
+    this->gameBoard.resize(row);
+    for(int i=0;i<row;i++)this->gameBoard[i].resize(column);
     for(int i=0;i<row;i++)
     {
         for(int j=0;j<column;j++)
