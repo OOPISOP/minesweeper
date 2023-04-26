@@ -15,6 +15,7 @@
 ## How to compile
 - 確保有QT6.5版本以上，且能開啟，有qt core與gui套件
 - 能使用qmake
+- c++17，或更新版本
 - 進入qt點開啟專案，選minesweeper.pro打開專案後點選左下角綠色箭頭即可編譯
 
 ## How to run
@@ -25,19 +26,33 @@
 ## Current Arch
 <img width="298" alt="截圖 2023-04-12 上午1 09 11" src="https://user-images.githubusercontent.com/69885352/231238520-4e8f57ab-4093-4bc4-b89a-6221db00d8a4.png">
 
-## File
+## File and Dir
 ### main.cpp
-載入與顯示起始ui(mainwindows)
+- 載入與顯示起始ui(mainwindows)
 ### mainwindows
-- mainwindows.cpp 實現mainwindows
-- mainwindows.h 定義mainwindows
+- 一開始為startui，遊戲開始後轉為game，使用stackWidget
+### assignboard
+- 用來改變指定炸彈盤面和指定炸彈生成率盤面，使用stackWidget
+### mineamountboard
+- 指定炸彈數量盤面
+### minerateboard
+- 指定炸彈生成率盤面
+### mybutton
+- 繼承QPushButton，實作左鍵與右鍵觸發事件
+### originboard
+- 載入盤面檔
+### startui
+- 一開始的ui
+### game
 ### minesweeper.pro
 為qmake，是qt版的cmake
 ### Resources.qrc
-裡面包含了boards資料夾的東西，原始盤面
+裡面包含了boards資料夾的東西，原始盤面，images資料夾，圖片檔與gif動畫檔
 ### boards dir
 裡面是放一些原始盤面，board1.txt~board5.txt
 還有pri和qrc檔，用來表示在Resources裡面
+### images dir
+裡面放一些圖片檔與gif，炸彈、爆炸動畫、旗子、問號
 ## current state
 - [x] 起始GUI
 <img width="1035" alt="截圖 2023-04-12 上午12 43 27" src="https://user-images.githubusercontent.com/69885352/231238544-e7f0c099-ddf7-485e-ac13-a2dd7aa0e8a4.png">
