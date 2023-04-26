@@ -44,6 +44,7 @@
 ### startui
 - 一開始的ui
 ### game
+- 進入遊戲後
 ### minesweeper.pro
 為qmake，是qt版的cmake
 ### Resources.qrc
@@ -53,6 +54,4 @@
 還有pri和qrc檔，用來表示在Resources裡面
 ### images dir
 裡面放一些圖片檔與gif，炸彈、爆炸動畫、旗子、問號
-## current state
-- [x] 起始GUI
-<img width="1035" alt="截圖 2023-04-12 上午12 43 27" src="https://user-images.githubusercontent.com/69885352/231238544-e7f0c099-ddf7-485e-ac13-a2dd7aa0e8a4.png">
+
