@@ -6,15 +6,21 @@
 
 ## Features
 ### 主功能
+- [x] 載入盤面檔
 - [x] 指令檔模式：輸入指令檔，將所有輸出寫入輸出檔
-
 ### 加分功能
+- [x] 隨機盤面生成
 - [x] 指令模式：用cin輸入指令，cout輸出指令
 - [x] GUI模式：開啟GUI遊玩
 ## How to compile
 - 確保有QT6.5版本以上，且能開啟，有qt core與gui套件
 - 能使用qmake
 - 進入qt點開啟專案，選minesweeper.pro打開專案後點選左下角綠色箭頭即可編譯
+
+## How to run
+- 載入盤面檔：minesweeper.exe CommandFile <輸入指令檔> <輸出檔>
+- 輸入指令模式：minesweeper.exe CommandInput
+- GUI：minesweeper.exe GUI，或是點minesweeper.exe即可開啟
 
 ## Current Arch
 <img width="298" alt="截圖 2023-04-12 上午1 09 11" src="https://user-images.githubusercontent.com/69885352/231238520-4e8f57ab-4093-4bc4-b89a-6221db00d8a4.png">
