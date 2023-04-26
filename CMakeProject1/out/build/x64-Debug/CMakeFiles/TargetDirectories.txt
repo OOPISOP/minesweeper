@@ -1,0 +1,3 @@
+C:/Users/Tzuen/Desktop/CMakeProject1/out/build/x64-Debug/CMakeFiles/ALL_BUILD.dir
+C:/Users/Tzuen/Desktop/CMakeProject1/out/build/x64-Debug/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Tzuen/Desktop/CMakeProject1/out/build/x64-Debug/CMakeProject1/CMakeFiles/CMakeProject1.dir
