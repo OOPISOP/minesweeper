@@ -44,7 +44,10 @@ public:
     bool expandDig(int,int);
     //print all game board
     void printAllGameBoard();
+<<<<<<< HEAD
     void setButtonDown();
+=======
+>>>>>>> origin/main
 
 private slots:
     //print game board

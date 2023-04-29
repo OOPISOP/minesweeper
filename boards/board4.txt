@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 5 7
 OOXOOOO
 XOOOOOO
 OXOOOOX
 OXOOOOO
+=======
+5 7
+OOXOOOO
+XOOOOOO
+OXOOOOX
+OXOOOOO
+>>>>>>> origin/main
 OOXXOXO

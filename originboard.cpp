@@ -140,7 +140,11 @@ void OriginBoard::on_loadButton_clicked()
         //fetch filePath from boardPath lineEdit
         QString filePath = ui->boardPath->text();
         //add filePath
+<<<<<<< HEAD
         QFile fi(filePath);
+=======
+        QFile fi(":"+filePath);
+>>>>>>> origin/main
         fi.open(QIODevice::ReadOnly);
         //check file,if file exist output Success,or output Failed
         if(fi.isOpen())

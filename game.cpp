@@ -32,6 +32,7 @@ Game::Game(MainWindow *parent) :
     ui->setupUi(this);
     mainWindow = parent;
 }
+<<<<<<< HEAD
 
 void Game::setButtonDown()
 {
@@ -50,6 +51,8 @@ void Game::setButtonDown()
     }
 }
 
+=======
+>>>>>>> origin/main
 //Intent:get the char times in the board
 //Pre:need 2D vector board,int row and col,char check
 //Pos:return the check char times
@@ -78,7 +81,10 @@ void Game::printAllGameBoard()
         for(int j=0;j<column;j++)
         {
             QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(i, j)->widget());
+<<<<<<< HEAD
             button->setIcon(QIcon());
+=======
+>>>>>>> origin/main
             //is bomb set bomb icon
             if(gameAnswer[i][j] == 'X')
             {
@@ -190,11 +196,24 @@ bool Game::expandDig(int inY, int inX)
         }
             //set game board and button text icon
             gameBoard[inY][inX] = '0';
+<<<<<<< HEAD
+=======
+            QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(inY, inX)->widget());
+            button->setDown(true);ui->gridLayout->itemAtPosition(inY,inX);
+            button->setIcon(QIcon());
+>>>>>>> origin/main
     }
     else if(gameBoard[inY][inX] != 'f')
     {
              //set game board and button text icon
         gameBoard[inY][inX] = gameAnswer[inY][inX];
+<<<<<<< HEAD
+=======
+        QPushButton *button = qobject_cast<QPushButton *>(ui->gridLayout->itemAtPosition(inY, inX)->widget());
+        button->setText(gameBoard[inY][inX]);
+        button->setDown(true);ui->gridLayout->itemAtPosition(inY,inX);
+        button->setIcon(QIcon());
+>>>>>>> origin/main
     }
     //set the openBlankCount
     ui->openBlankCount->setText(QString::number(row*column-getGameData(gameBoard,row,column,'#')  - getGameData(gameBoard,row,column,'f') - getGameData(gameBoard,row,column,'?')));
@@ -385,7 +404,10 @@ void Game::leftEnter(int i,int j)
       //bfs
       expandDig(i,j);
     }
+<<<<<<< HEAD
     setButtonDown();
+=======
+>>>>>>> origin/main
 }
 //Intent:set the right enter event
 //Pre:need click button  right and button y and x pos
@@ -430,7 +452,10 @@ void Game::rightEnter(int i,int j)
             button->setIcon(QIcon(":./images/question_mark.png"));
         }
     }
+<<<<<<< HEAD
     setButtonDown();
+=======
+>>>>>>> origin/main
 }
 //Intent:replay the game
 //Pre:need to push the replay button

@@ -60,8 +60,13 @@ void MineRateBoard::initAnswer(double rate)
     // Random set mines poistion
     for (int mine = 0; mine < bombs; mine++)
     {
+<<<<<<< HEAD
         int rowP = rand()%row;
         int colP = rand()%column;
+=======
+        int rowP = random()%row;
+        int colP = random()%column;
+>>>>>>> origin/main
 
         if (gameAnswer[rowP][colP] == 'X')
         {
