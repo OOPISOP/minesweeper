@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>boards/board1.txt</file>
+        <file>boards/board2.txt</file>
+        <file>boards/board3.txt</file>
+        <file>boards/board4.txt</file>
+        <file>boards/board5.txt</file>
+        <file>boards/boards.pri</file>
+        <file>boards/boards.qrc</file>
+	<file>animations/BombExplosion.gif</file>
+	<file>animations/animations.pri</file>
+	<file>animations/animations.qrc</file>
+	<file>images/bomb.png</file>
+	<file>images/flag.png</file>
+	<file>images/question_mark.png</file>
+	<file>images/images.pri</file>
+	<file>images/images.qrc</file>
+	<file>sounds/BombExplosion.wav</file>
+	<file>sounds/OpenCell.wav</file>
+	<file>sounds/Road_to_Dazir.mp3</file>
+	<file>sounds/sounds.pri</file>
+	<file>sounds/sounds.qrc</file>
+    </qresource>
+</RCC>
